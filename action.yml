@@ -13,11 +13,22 @@ inputs:
     required: true
     default: 'Not working'
 
-outputs:
-  readme-badges:
-    description: 'README badges text file'
+#outputs:
+#  readme-badges:
+#   description: 'README badges text file'
 
+#runs:
+  #using: node16
+  #main: dist/index.js
 runs:
-  using: node16
-  main: dist/index.js
+  using: "composite"
+  steps:
+    - name: "Run script"
+      run: node ${{ github.action_path }}/dist/index.js
+      shell: bash
+      env:
+        urlUpdate: ${{ vars.URLUPDATECOMPLIANCESTATE }}
+        urlRead: ${{ vars.URLREADTOREADME }}
+        urlDashboard: ${{ vars.URLDASHBOARD }}
+        readToReadMeKeyAcessKey: ${{ secrets.READTOREADMEACCESSKEY }}
   
