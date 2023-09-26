@@ -93,6 +93,7 @@ export class BodyBuilder {
 
     devopsOrgName = this.splitUrl(devopsOrgName);
 
+    console.log('before UrlBodyBuilder:');
     //For printing urls in the pipeline
     const urlBody: UrlBody = new UrlBodyBuilder()
       .setThreatModelingDate(threatModelingDate)
@@ -108,6 +109,7 @@ export class BodyBuilder {
       .setPentestDate(pentestDate)
       .build();
 
+      console.log('before UrlBuilder.createUrl:');
     urls = UrlBuilder.createUrl(
       // eslint-disable-line
       teamName,
@@ -118,7 +120,7 @@ export class BodyBuilder {
       subscriptionId,
       urlBody,
     );
-
+    console.log('before ResponseBodyBuilder:');
     const responseBody: ResponseBody = new ResponseBodyBuilder()
       .setTeamName(teamName)
       .setTeamProjectName(teamProjectName)
