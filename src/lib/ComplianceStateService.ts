@@ -4,6 +4,7 @@ import config from '../config.json';
 import { ResponseBody } from './ResponseBody';
 import * as fs from 'fs';
 import * as path from 'path';
+import * as core from '@actions/core';
 
 export class ComplianceStateService {
   public async createAndSendComplianceState(
@@ -36,6 +37,7 @@ export class ComplianceStateService {
         //Remove this console.log
         console.log("Debug: " + outputFilePath)
         fs.writeFileSync(outputFilePath, urls, 'utf-8');
+        core.setOutput("readme-badges", urls);
         console.log(urls);
       })
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

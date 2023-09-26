@@ -31,6 +31,7 @@ const BodyBuilder_1 = require("./BodyBuilder");
 const axios_1 = __importDefault(require("axios"));
 const fs = __importStar(require("fs"));
 const path = __importStar(require("path"));
+const core = __importStar(require("@actions/core"));
 class ComplianceStateService {
     async createAndSendComplianceState(teamName, repositoryId, codeRepositoryName, subscriptionId) {
         // POST-request to Azure function
@@ -51,6 +52,7 @@ class ComplianceStateService {
             //Remove this console.log
             console.log("Debug: " + outputFilePath);
             fs.writeFileSync(outputFilePath, urls, 'utf-8');
+            core.setOutput("readme-badges", urls);
             console.log(urls);
         })
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
