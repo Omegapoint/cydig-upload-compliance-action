@@ -35,6 +35,7 @@ class ComplianceStateService {
     async createAndSendComplianceState(teamName, repositoryId, codeRepositoryName, subscriptionId) {
         // POST-request to Azure function
         const urlUpdate = process.env.urlUpdate;
+        console.log("urlUpdate: " + urlUpdate);
         const bodyBuilder = new BodyBuilder_1.BodyBuilder();
         const responseBody = bodyBuilder.createBody(teamName, repositoryId, codeRepositoryName, subscriptionId);
         await axios_1.default

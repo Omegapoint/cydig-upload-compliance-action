@@ -5,8 +5,11 @@ class UrlBuilder {
     static createUrl(teamName, devopsOrgName, teamProjectName, codeRepositoryName, repositoryId, subscriptionId, states) {
         //Don´t forget to implement this as github secrets in the repository
         const urlReadToReadMe = process.env.urlRead;
+        console.log("urlRead: " + urlReadToReadMe);
         const urlDashboard = process.env.urlDashboard;
+        console.log("urlDashboard: " + urlDashboard);
         const readToReadMeKeyAcessKey = process.env.readToReadMeKeyAcessKey;
+        console.log("readToReadMeKeyAcessKey: " + readToReadMeKeyAcessKey);
         let urls = '';
         let encodedURL;
         let singleBadgeURL;

@@ -104,6 +104,7 @@ class BodyBuilder {
         console.log('numUserInProdSeverity2:', process.env.numUserInProdSeverity2);
         console.log('numUserInProdSeverity3:', process.env.numUserInProdSeverity3);
         devopsOrgName = this.splitUrl(devopsOrgName);
+        console.log('before UrlBodyBuilder:');
         //For printing urls in the pipeline
         const urlBody = new UrlBodyBuilder_1.UrlBodyBuilder()
             .setThreatModelingDate(threatModelingDate)
@@ -118,9 +119,11 @@ class BodyBuilder {
             .setNumberOfDeployedVMs(numberOfDeployedVMs)
             .setPentestDate(pentestDate)
             .build();
+        console.log('before UrlBuilder.createUrl:');
         urls = UrlBuilder_1.UrlBuilder.createUrl(
         // eslint-disable-line
         teamName, devopsOrgName, teamProjectName, codeRepositoryName, repositoryId, subscriptionId, urlBody);
+        console.log('before ResponseBodyBuilder:');
         const responseBody = new ResponseBodyBuilder_1.ResponseBodyBuilder()
             .setTeamName(teamName)
             .setTeamProjectName(teamProjectName)
