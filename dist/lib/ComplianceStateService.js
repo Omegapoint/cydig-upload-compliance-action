@@ -29,13 +29,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ComplianceStateService = void 0;
 const BodyBuilder_1 = require("./BodyBuilder");
 const axios_1 = __importDefault(require("axios"));
-const config_json_1 = __importDefault(require("../config.json"));
 const fs = __importStar(require("fs"));
 const path = __importStar(require("path"));
 class ComplianceStateService {
     async createAndSendComplianceState(teamName, repositoryId, codeRepositoryName, subscriptionId) {
         // POST-request to Azure function
-        const urlUpdate = config_json_1.default.urlUpdate;
+        const urlUpdate = process.env.urlUpdate;
         const bodyBuilder = new BodyBuilder_1.BodyBuilder();
         const responseBody = bodyBuilder.createBody(teamName, repositoryId, codeRepositoryName, subscriptionId);
         await axios_1.default

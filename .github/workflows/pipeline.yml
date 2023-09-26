@@ -5,24 +5,11 @@ permissions:
   pages: write
   id-token: write
 
-#env:
-#    configFile: '${{ github.workspace }}/cydigConfig.json'
-#    disableWarningUsersInProd: false
-#    threatModelingDate: 'casd'
-#    threatModelingTag: 'dsad'
-#    pentestDate: ''
-#    pentestTag: ''
-#    scaTool: ''
-#    sastTool: ''
-#    codeQualityTool: ''
-#    nameOfBoard: ''
-#    mendValues.mendUserKey: ''
-#    mendValues.mendProjectName: ''
-#    mendValues.mendProductToken: ''
-#    mendValues.mendDomain: ''
-#    sonarQubeValues.sonarQubeProjectKey: ''
-#    sonarQubeValues.sonarQubeUserKey: ''
-#    sonarQubeValues.sonarQubeDomain: ''
+env:
+  urlUpdate: ${{ vars.URLUPDATECOMPLIANCESTATE }}
+  urlRead: ${{ vars.URLREADTOREADME }}
+  urlDashboard: ${{ vars.URLDASHBOARD }}
+  readToReadMeKeyAcessKey: ${{ secrets.READTOREADMEACCESSKEY }}
 
 on: [push]
 jobs:
@@ -34,15 +21,9 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
 
-      - name: Update URL variables
+      - name: test
         run: |
-          (Get-Content '${{ github.workspace }}/src/config.json') | Foreach-Object {
-              $_ -replace '###urlupdate###', '${{vars.URLUPDATECOMPLIANCESTATE}}' `
-                -replace '###urlread###', '${{vars.URLREADTOREADME}}' `
-                -replace '###urldashboard###', '${{vars.URLDASHBOARD}}' `
-                -replace '###readtoreadmeaccesskey###', '${{secrets.READTOREADMEACCESSKEY}}' `
-
-              } | Set-Content '${{ github.workspace }}/config.json'
+          echo 'test'
         shell: pwsh
 
       - name: Install dependencies

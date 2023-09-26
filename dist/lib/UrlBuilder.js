@@ -1,16 +1,12 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UrlBuilder = void 0;
-const config_json_1 = __importDefault(require("../config.json"));
 class UrlBuilder {
     static createUrl(teamName, devopsOrgName, teamProjectName, codeRepositoryName, repositoryId, subscriptionId, states) {
         //Don´t forget to implement this as github secrets in the repository
-        const urlReadToReadMe = config_json_1.default.urlRead;
-        const urlDashboard = config_json_1.default.urlDashboard;
-        const readToReadMeKeyAcessKey = config_json_1.default.readToReadMeKeyAcessKey;
+        const urlReadToReadMe = process.env.urlRead;
+        const urlDashboard = process.env.urlDashboard;
+        const readToReadMeKeyAcessKey = process.env.readToReadMeKeyAcessKey;
         let urls = '';
         let encodedURL;
         let singleBadgeURL;
