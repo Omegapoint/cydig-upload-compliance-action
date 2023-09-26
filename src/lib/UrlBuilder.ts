@@ -12,8 +12,11 @@ export class UrlBuilder {
   ): string {
     //Don´t forget to implement this as github secrets in the repository
     const urlReadToReadMe: string = process.env.urlRead;
+    console.log("urlRead: " + urlReadToReadMe)
     const urlDashboard: string = process.env.urlDashboard;
+    console.log("urlDashboard: " + urlDashboard)
     const readToReadMeKeyAcessKey: string = process.env.readToReadMeKeyAcessKey;
+    console.log("readToReadMeKeyAcessKey: " + readToReadMeKeyAcessKey)
     let urls: string = '';
     let encodedURL: string;
     let singleBadgeURL: string;

@@ -14,6 +14,7 @@ export class ComplianceStateService {
   ): Promise<void> {
     // POST-request to Azure function
     const urlUpdate: string = process.env.urlUpdate;
+    console.log("urlUpdate: " + urlUpdate)
     const bodyBuilder: BodyBuilder = new BodyBuilder();
     const responseBody: ResponseBody = bodyBuilder.createBody(
       teamName,
