@@ -14,7 +14,7 @@ export class ComplianceStateService {
     // POST-request to Azure function
     let urlUpload: string = process.env.urlUpload || '';
     const uploadKey: string = process.env.uploadKey || '';
-    urlUpload = uploadKey;
+    urlUpload = urlUpload + uploadKey;
     
     console.log("urlUpload:: " + urlUpload)
     const bodyBuilder: BodyBuilder = new BodyBuilder();
