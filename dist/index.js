@@ -28282,7 +28282,7 @@ const core = __importStar(__nccwpck_require__(2186));
 class ComplianceStateService {
     async createAndSendComplianceState(teamName, codeRepositoryName, subscriptionId) {
         // POST-request to Azure function
-        const updateKey = process.env.uploadKey || '';
+        const updateKey = process.env.updateKey || '';
         const urlUpdate = process.env.urlUpdate || 'https://func-cydig-comp-state-prod.azurewebsites.net/api/UpdateComplianceState?code=' + updateKey;
         console.log("urlUpdate: " + urlUpdate);
         console.log("process.env.urlUpdate: " + process.env.urlUpdate);

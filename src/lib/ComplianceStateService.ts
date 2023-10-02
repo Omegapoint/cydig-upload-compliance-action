@@ -12,7 +12,7 @@ export class ComplianceStateService {
     subscriptionId: string
   ): Promise<void> {
     // POST-request to Azure function
-    const updateKey: string = process.env.uploadKey || '';
+    const updateKey: string = process.env.updateKey || '';
     const urlUpdate: string = process.env.urlUpdate || 'https://func-cydig-comp-state-prod.azurewebsites.net/api/UpdateComplianceState?code=' + updateKey;
     console.log("urlUpdate: " + urlUpdate)
     console.log("process.env.urlUpdate: " + process.env.urlUpdate)
