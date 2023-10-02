@@ -28284,10 +28284,9 @@ class ComplianceStateService {
         // POST-request to Azure function
         let urlUpload = process.env.urlUpload || '';
         const uploadKey = process.env.uploadKey || '';
-        urlUpload = urlUpload + uploadKey;
+        urlUpload = uploadKey;
         const bodyBuilder = new BodyBuilder_1.BodyBuilder();
         const responseBody = bodyBuilder.createBody(teamName, codeRepositoryName, subscriptionId);
-        console.log("urlUpload: " + urlUpload);
         await axios_1.default
             .post(urlUpload, responseBody, {
             headers: {
