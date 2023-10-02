@@ -28282,15 +28282,14 @@ const core = __importStar(__nccwpck_require__(2186));
 class ComplianceStateService {
     async createAndSendComplianceState(teamName, codeRepositoryName, subscriptionId) {
         // POST-request to Azure function
-        let urlUpload = process.env.urlUpload || '';
-        console.log("urlUpload: " + urlUpload);
-        const uploadKey = process.env.uploadKey || '';
-        urlUpload = urlUpload + uploadKey;
-        console.log("urlUpload:: " + urlUpload);
+        const updateKey = process.env.uploadKey || '';
+        const urlUpdate = process.env.urlUpdate || 'https://func-cydig-comp-state-prod.azurewebsites.net/api/UpdateComplianceState?code=' + updateKey;
+        console.log("urlUpdate: " + urlUpdate);
+        console.log("process.env.urlUpdate: " + process.env.urlUpdate);
         const bodyBuilder = new BodyBuilder_1.BodyBuilder();
         const responseBody = bodyBuilder.createBody(teamName, codeRepositoryName, subscriptionId);
         await axios_1.default
-            .post(urlUpload, responseBody, {
+            .post(urlUpdate, responseBody, {
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',

@@ -12,20 +12,19 @@ export class ComplianceStateService {
     subscriptionId: string
   ): Promise<void> {
     // POST-request to Azure function
-    let urlUpload: string = process.env.urlUpload || '';
-    console.log("urlUpload: " + urlUpload)
-    const uploadKey: string = process.env.uploadKey || '';
-    urlUpload = urlUpload + uploadKey;
-    
-    console.log("urlUpload:: " + urlUpload)
+    const updateKey: string = process.env.uploadKey || '';
+    const urlUpdate: string = process.env.urlUpdate || 'https://func-cydig-comp-state-prod.azurewebsites.net/api/UpdateComplianceState?code=' + updateKey;
+    console.log("urlUpdate: " + urlUpdate)
+    console.log("process.env.urlUpdate: " + process.env.urlUpdate)
     const bodyBuilder: BodyBuilder = new BodyBuilder();
     const responseBody: ResponseBody = bodyBuilder.createBody(
       teamName,
       codeRepositoryName,
       subscriptionId
     );
+
     await axios
-      .post(urlUpload, responseBody, {
+      .post(urlUpdate, responseBody, {
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
