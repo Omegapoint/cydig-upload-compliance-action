@@ -28284,7 +28284,7 @@ class ComplianceStateService {
         // POST-request to Azure function
         let urlUpload = process.env.urlUpload || '';
         console.log("urlUpload: " + urlUpload);
-        const uploadKey = process.env.urlRead || '';
+        const uploadKey = process.env.uploadKey || '';
         urlUpload = urlUpload + uploadKey;
         console.log("urlUpload:: " + urlUpload);
         const bodyBuilder = new BodyBuilder_1.BodyBuilder();
