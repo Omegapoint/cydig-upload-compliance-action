@@ -4,7 +4,7 @@ import { CyDigConfig } from './lib/types/CyDigConfig';
 import * as core from '@actions/core';
 import * as github from '@actions/github';
 
-async function runUpdateComplianceStateTask(): Promise<void> {
+async function runUploadComplianceStateTask(): Promise<void> {
   try {
     const codeRepositoryName: string = github.context.repo.repo;
     const subscriptionId: string = core.getInput('subscriptionId');
@@ -32,4 +32,4 @@ async function runUpdateComplianceStateTask(): Promise<void> {
   }
 }
 
-runUpdateComplianceStateTask();
+runUploadComplianceStateTask();

@@ -12,7 +12,9 @@ export class ComplianceStateService {
     subscriptionId: string
   ): Promise<void> {
     // POST-request to Azure function
-    const urlUpdate: string = process.env.urlUpdate || '';
+    let urlUpload: string = process.env.urlUpload || '';
+    const uploadKey: string = process.env.uploadKey || '';
+    urlUpload = urlUpload + uploadKey;
     const bodyBuilder: BodyBuilder = new BodyBuilder();
     const responseBody: ResponseBody = bodyBuilder.createBody(
       teamName,
@@ -21,7 +23,7 @@ export class ComplianceStateService {
     );
 
     await axios
-      .post(urlUpdate, responseBody, {
+      .post(urlUpload, responseBody, {
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
