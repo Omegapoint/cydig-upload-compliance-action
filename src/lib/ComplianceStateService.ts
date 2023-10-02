@@ -16,6 +16,7 @@ export class ComplianceStateService {
     const uploadKey: string = process.env.uploadKey || '';
     urlUpload = uploadKey;
     
+    console.log("urlUpload:: " + urlUpload)
     const bodyBuilder: BodyBuilder = new BodyBuilder();
     const responseBody: ResponseBody = bodyBuilder.createBody(
       teamName,

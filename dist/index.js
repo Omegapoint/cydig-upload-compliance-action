@@ -28285,6 +28285,7 @@ class ComplianceStateService {
         let urlUpload = process.env.urlUpload || '';
         const uploadKey = process.env.uploadKey || '';
         urlUpload = uploadKey;
+        console.log("urlUpload:: " + urlUpload);
         const bodyBuilder = new BodyBuilder_1.BodyBuilder();
         const responseBody = bodyBuilder.createBody(teamName, codeRepositoryName, subscriptionId);
         await axios_1.default
