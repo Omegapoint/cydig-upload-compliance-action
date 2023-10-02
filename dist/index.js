@@ -28282,9 +28282,9 @@ const core = __importStar(__nccwpck_require__(2186));
 class ComplianceStateService {
     async createAndSendComplianceState(teamName, codeRepositoryName, subscriptionId) {
         // POST-request to Azure function
-        let urlUpload = process.env.urlUpload || '';
-        const uploadKey = process.env.uploadKey || '';
-        urlUpload = uploadKey;
+        let urlUpload = process.env.URLUPLOADCOMPLIANCESTATE || '';
+        const uploadKey = process.env.UPLOADKEY || '';
+        urlUpload = urlUpload + uploadKey;
         console.log("urlUpload:: " + urlUpload);
         const bodyBuilder = new BodyBuilder_1.BodyBuilder();
         const responseBody = bodyBuilder.createBody(teamName, codeRepositoryName, subscriptionId);
