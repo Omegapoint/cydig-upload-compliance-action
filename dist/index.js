@@ -28286,6 +28286,7 @@ class ComplianceStateService {
         const urlUpdate = process.env.urlUpdate || 'https://func-cydig-comp-state-prod.azurewebsites.net/api/UpdateComplianceState?code=' + updateKey;
         console.log("urlUpdate: " + urlUpdate);
         console.log("process.env.urlUpdate: " + process.env.urlUpdate);
+        console.log("updateKey: " + updateKey);
         const bodyBuilder = new BodyBuilder_1.BodyBuilder();
         const responseBody = bodyBuilder.createBody(teamName, codeRepositoryName, subscriptionId);
         await axios_1.default

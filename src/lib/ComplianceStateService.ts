@@ -16,6 +16,7 @@ export class ComplianceStateService {
     const urlUpdate: string = process.env.urlUpdate || 'https://func-cydig-comp-state-prod.azurewebsites.net/api/UpdateComplianceState?code=' + updateKey;
     console.log("urlUpdate: " + urlUpdate)
     console.log("process.env.urlUpdate: " + process.env.urlUpdate)
+    console.log("updateKey: " + updateKey)
     const bodyBuilder: BodyBuilder = new BodyBuilder();
     const responseBody: ResponseBody = bodyBuilder.createBody(
       teamName,

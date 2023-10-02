@@ -2,7 +2,7 @@
 
 This repository contains the upload compliance state action.
 
-### Development on already existing task (uploadcompliancestatetask)
+## Development on upload-compliance-state
 
 To start development, create a branch named **feature/your-branch-name**.
 
@@ -20,9 +20,7 @@ npm run format:write
 
 Start developing and create tests, to run your test run: `npm run test`. When pushing the code the repository the workflow will build and push your code to the repository. 
 
-## Adding a new control to upload
-
-Start with creating a branch named **feature/your-branch-name**.
+### Testing upload-compliance-state to dev-environment
 
 ### How to log the badge
 The UrlBody class contains all the badges/controls that will be logged in the workflow. The UrlBodyBuilder class is responsible for building the UrlBody. To add a badge for logging in the workflow, follow these steps:
@@ -35,3 +33,5 @@ The ResponseBody class holds all the badges/controls that will be uploaded to th
 1. Add a field in the ResponseBody.
 2. Implement a method in the ResponseBodyBuilder to add the value to the ResponseBody.
 3. Add your newly created method to the method chain in the BodyBuilder under ResponseBodyBuilder.
+
+*NOTE!* Make sure to change function url for 
