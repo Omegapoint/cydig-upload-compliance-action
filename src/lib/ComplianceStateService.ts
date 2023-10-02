@@ -12,9 +12,9 @@ export class ComplianceStateService {
     subscriptionId: string
   ): Promise<void> {
     // POST-request to Azure function
-    let urlUpload: string = process.env.URLUPLOADCOMPLIANCESTATE || '';
+    let urlUpload: string = process.env.urlUpload || '';
     console.log("urlUpload: " + urlUpload)
-    const uploadKey: string = process.env.UPLOADKEY || '';
+    const uploadKey: string = process.env.urlRead || '';
     urlUpload = urlUpload + uploadKey;
     
     console.log("urlUpload:: " + urlUpload)
