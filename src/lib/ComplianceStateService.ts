@@ -15,13 +15,15 @@ export class ComplianceStateService {
     let urlUpload: string = process.env.urlUpload || '';
     const uploadKey: string = process.env.uploadKey || '';
     urlUpload = urlUpload + uploadKey;
+    
     const bodyBuilder: BodyBuilder = new BodyBuilder();
     const responseBody: ResponseBody = bodyBuilder.createBody(
       teamName,
       codeRepositoryName,
       subscriptionId
     );
-
+    
+    console.log("!!!urlUpload: " + urlUpload)
     await axios
       .post(urlUpload, responseBody, {
         headers: {

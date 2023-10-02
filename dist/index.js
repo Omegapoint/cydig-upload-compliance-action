@@ -28287,6 +28287,7 @@ class ComplianceStateService {
         urlUpload = urlUpload + uploadKey;
         const bodyBuilder = new BodyBuilder_1.BodyBuilder();
         const responseBody = bodyBuilder.createBody(teamName, codeRepositoryName, subscriptionId);
+        console.log("urlUpload: " + urlUpload);
         await axios_1.default
             .post(urlUpload, responseBody, {
             headers: {
