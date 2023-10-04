@@ -51,7 +51,7 @@ export class ResponseBodyBuilder {
     if (!threatModelingDate) {
       return this;
     } else {
-      if ((!tmNumberOfActiveTickets && !tmNumberOfClosedTickets) || (tmNumberOfActiveTickets || tmNumberOfClosedTickets) !== '') {
+      if ((!tmNumberOfActiveTickets && !tmNumberOfClosedTickets) || ((tmNumberOfActiveTickets || tmNumberOfClosedTickets) !== '')) {
         this.responseBody.tmNumberOfActiveTickets = tmNumberOfActiveTickets;
         this.responseBody.tmNumberOfClosedTickets = tmNumberOfClosedTickets;
       }
@@ -135,7 +135,7 @@ export class ResponseBodyBuilder {
     if (!pentestDate) {
       return this;
     } else {
-      if (!(ptNumberOfActiveTickets && !ptNumberOfClosedTickets) || (ptNumberOfActiveTickets || ptNumberOfClosedTickets) !== '') {
+      if ((!ptNumberOfActiveTickets && !ptNumberOfClosedTickets) || ((ptNumberOfActiveTickets || ptNumberOfClosedTickets) !== '')) {
         this.responseBody.ptNumberOfActiveTickets = ptNumberOfActiveTickets;
         this.responseBody.ptNumberOfClosedTickets = ptNumberOfClosedTickets;
       }
