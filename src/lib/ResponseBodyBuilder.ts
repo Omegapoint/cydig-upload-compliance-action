@@ -135,7 +135,7 @@ export class ResponseBodyBuilder {
     if (!pentestDate) {
       return this;
     } else {
-      if (!(ptNumberOfActiveTickets && !ptNumberOfClosedTickets) || (!ptNumberOfActiveTickets || ptNumberOfClosedTickets) !== '') {
+      if (!(ptNumberOfActiveTickets && !ptNumberOfClosedTickets) || (ptNumberOfActiveTickets || ptNumberOfClosedTickets) !== '') {
         this.responseBody.ptNumberOfActiveTickets = ptNumberOfActiveTickets;
         this.responseBody.ptNumberOfClosedTickets = ptNumberOfClosedTickets;
       }
