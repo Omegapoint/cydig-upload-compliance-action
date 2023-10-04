@@ -28513,9 +28513,13 @@ class ResponseBodyBuilder {
             return this;
         }
         else {
+            console.log("(before): tmNumberOfActiveTickets: " + tmNumberOfActiveTickets);
+            console.log("(before): tmNumberOfClosedTickets" + tmNumberOfClosedTickets);
             if ((!tmNumberOfActiveTickets && !tmNumberOfClosedTickets) || ((tmNumberOfActiveTickets || tmNumberOfClosedTickets) !== '')) {
                 this.responseBody.tmNumberOfActiveTickets = tmNumberOfActiveTickets;
                 this.responseBody.tmNumberOfClosedTickets = tmNumberOfClosedTickets;
+                console.log("(after): tmNumberOfActiveTickets: " + tmNumberOfActiveTickets);
+                console.log("(after): tmNumberOfClosedTickets" + tmNumberOfClosedTickets);
             }
             this.responseBody.threatModelingDate = threatModelingDate;
             return this;
@@ -28586,9 +28590,13 @@ class ResponseBodyBuilder {
             return this;
         }
         else {
+            console.log("(before): ptNumberOfActiveTickets: " + ptNumberOfActiveTickets);
+            console.log("(before): ptNumberOfClosedTickets" + ptNumberOfClosedTickets);
             if ((!ptNumberOfActiveTickets && !ptNumberOfClosedTickets) || ((ptNumberOfActiveTickets || ptNumberOfClosedTickets) !== '')) {
                 this.responseBody.ptNumberOfActiveTickets = ptNumberOfActiveTickets;
                 this.responseBody.ptNumberOfClosedTickets = ptNumberOfClosedTickets;
+                console.log("(after): ptNumberOfActiveTickets: " + ptNumberOfActiveTickets);
+                console.log("(after): ptNumberOfClosedTickets" + ptNumberOfClosedTickets);
             }
             this.responseBody.pentestDate = pentestDate;
             return this;
