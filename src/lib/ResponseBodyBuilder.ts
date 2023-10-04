@@ -53,7 +53,7 @@ export class ResponseBodyBuilder {
     } else {
       console.log("(before): tmNumberOfActiveTickets: " + tmNumberOfActiveTickets)
       console.log("(before): tmNumberOfClosedTickets" + tmNumberOfClosedTickets)
-      if ((!tmNumberOfActiveTickets && !tmNumberOfClosedTickets) || ((tmNumberOfActiveTickets || tmNumberOfClosedTickets) !== '')) {
+      if ((!tmNumberOfActiveTickets && !tmNumberOfClosedTickets) && ((tmNumberOfActiveTickets || tmNumberOfClosedTickets) !== '')) {
         this.responseBody.tmNumberOfActiveTickets = tmNumberOfActiveTickets;
         this.responseBody.tmNumberOfClosedTickets = tmNumberOfClosedTickets;
         console.log("(after): tmNumberOfActiveTickets: " + tmNumberOfActiveTickets)
@@ -141,7 +141,7 @@ export class ResponseBodyBuilder {
     } else {
       console.log("(before): ptNumberOfActiveTickets: " + ptNumberOfActiveTickets)
       console.log("(before): ptNumberOfClosedTickets" + ptNumberOfClosedTickets)
-      if ((!ptNumberOfActiveTickets && !ptNumberOfClosedTickets) || ((ptNumberOfActiveTickets || ptNumberOfClosedTickets) !== '')) {
+      if ((!ptNumberOfActiveTickets && !ptNumberOfClosedTickets) && ((ptNumberOfActiveTickets || ptNumberOfClosedTickets) !== '')) {
         this.responseBody.ptNumberOfActiveTickets = ptNumberOfActiveTickets;
         this.responseBody.ptNumberOfClosedTickets = ptNumberOfClosedTickets;
 
