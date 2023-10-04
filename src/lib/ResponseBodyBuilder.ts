@@ -45,19 +45,20 @@ export class ResponseBodyBuilder {
 
   setThreatModelingDate(
     threatModelingDate: string,
-    tmNumberOfActiveTickets: string,
-    tmNumberOfClosedTickets: string
+    tmNumberOfActiveTickets: string | undefined,
+    tmNumberOfClosedTickets: string | undefined
   ): this {
     if (!threatModelingDate) {
       return this;
     } else {
       console.log("(before): tmNumberOfActiveTickets: " + tmNumberOfActiveTickets)
       console.log("(before): tmNumberOfClosedTickets" + tmNumberOfClosedTickets)
-      if ((!tmNumberOfActiveTickets && !tmNumberOfClosedTickets) && ((tmNumberOfActiveTickets || tmNumberOfClosedTickets) !== '')) {
+      if (tmNumberOfActiveTickets !== undefined) {
         this.responseBody.tmNumberOfActiveTickets = tmNumberOfActiveTickets;
+      }
+
+      if (tmNumberOfClosedTickets !== undefined) {
         this.responseBody.tmNumberOfClosedTickets = tmNumberOfClosedTickets;
-        console.log("(after): tmNumberOfActiveTickets: " + tmNumberOfActiveTickets)
-        console.log("(after): tmNumberOfClosedTickets" + tmNumberOfClosedTickets)
       }
       this.responseBody.threatModelingDate = threatModelingDate;
       return this;

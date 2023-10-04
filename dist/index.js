@@ -28189,8 +28189,8 @@ class BodyBuilder {
         const sastNumberOfSeverity1 = process.env.SASTnumberOfSeverity1 || '';
         const sastNumberOfSeverity2 = process.env.SASTnumberOfSeverity2 || '';
         const sastNumberOfSeverity3 = process.env.SASTnumberOfSeverity3 || '';
-        const tmNumberOfActiveTickets = process.env.tmNumberOfActiveTickets || '';
-        const tmNumberOfClosedTickets = process.env.tmNumberOfClosedTickets || '';
+        const tmNumberOfActiveTickets = process.env.tmNumberOfActiveTickets || undefined;
+        const tmNumberOfClosedTickets = process.env.tmNumberOfClosedTickets || undefined;
         const ptNumberOfActiveTickets = process.env.ptNumberOfActiveTickets || '';
         const ptNumberOfClosedTickets = process.env.ptNumberOfClosedTickets || '';
         const numUserInProdSeverity1 = process.env.numUserInProdSeverity1 || '';
@@ -28515,11 +28515,11 @@ class ResponseBodyBuilder {
         else {
             console.log("(before): tmNumberOfActiveTickets: " + tmNumberOfActiveTickets);
             console.log("(before): tmNumberOfClosedTickets" + tmNumberOfClosedTickets);
-            if ((!tmNumberOfActiveTickets && !tmNumberOfClosedTickets) && ((tmNumberOfActiveTickets || tmNumberOfClosedTickets) !== '')) {
+            if (tmNumberOfActiveTickets !== undefined) {
                 this.responseBody.tmNumberOfActiveTickets = tmNumberOfActiveTickets;
+            }
+            if (tmNumberOfClosedTickets !== undefined) {
                 this.responseBody.tmNumberOfClosedTickets = tmNumberOfClosedTickets;
-                console.log("(after): tmNumberOfActiveTickets: " + tmNumberOfActiveTickets);
-                console.log("(after): tmNumberOfClosedTickets" + tmNumberOfClosedTickets);
             }
             this.responseBody.threatModelingDate = threatModelingDate;
             return this;
