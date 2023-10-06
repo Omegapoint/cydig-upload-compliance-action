@@ -28871,6 +28871,7 @@ class UrlBuilder {
         singleBadgeURL = '![' + 'Timestamp' + '](https://img.shields.io/endpoint?url=' + encodedURL + ')';
         urls = urls + singleBadgeURL + '<br/>' + '<br/>' + '\n';
         for (const state of Object.keys(states)) {
+            console.log("state: " + state);
             redirectLink = '';
             encodedURL = encodeURIComponent(readFunctionURL +
                 readToReadMeKeyAcessKey +

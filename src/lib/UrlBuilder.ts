@@ -42,6 +42,7 @@ export class UrlBuilder {
     urls = urls + singleBadgeURL + '<br/>' + '<br/>' + '\n';
 
     for (const state of Object.keys(states)) {
+      console.log("state: " + state)
       redirectLink = '';
       encodedURL = encodeURIComponent(
         readFunctionURL +
