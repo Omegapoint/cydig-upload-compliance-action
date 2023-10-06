@@ -29,7 +29,7 @@ public/css/main.css
 coverage
 
 # Dependency directory
-node_modules
+#node_modules
 bower_components
 
 # Editors
@@ -45,6 +45,6 @@ yarn.lock
 *.vsix
 
 # Others
-dist
+#dist
 ResultsFile.xml
 # Ignore built ts files
