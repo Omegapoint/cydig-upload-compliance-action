@@ -28885,6 +28885,14 @@ class UrlBuilder {
                 state);
             singleBadgeURL = '[![' + state + '](https://img.shields.io/endpoint?url=' + encodedURL + ')]';
             switch (state) {
+                case 'scaTool':
+                    break;
+                case 'sastTool':
+                    break;
+                case 'codeQualityTool':
+                    break;
+                case 'numberOfExposedSecrets':
+                    break;
                 case 'secureScore':
                     redirectLink =
                         '(https://portal.azure.com/#view/Microsoft_Azure_Security/RecommendationsBladeV2/subscriptionIds~/%5B%22' +
