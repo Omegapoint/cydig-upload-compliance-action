@@ -82,22 +82,22 @@ export class BodyBuilder {
       .setSubscriptionId(subscriptionId)
       .setThreatModelingDate(threatModelingDate, tmNumberOfActiveTickets, tmNumberOfClosedTickets)
       .setNumberOfReviewers(numberOfReviewers, branchPolicyUpdateDate, branchPolicyUpdateEmail)
-      .setScaTool(scaTool, scaNumberOfSeverity1, scaNumberOfSeverity2, scaNumberOfSeverity3, scaNumberOfSeverity4)
-      .setSastTool(sastTool, sastNumberOfSeverity1, sastNumberOfSeverity2, sastNumberOfSeverity3)
       .setSecureScore(secureScore)
       .setAllowedLocationPolicy(allowedLocationPolicy, compliantResources, nonCompliantResources)
       .setNumberOfHumansInSubscription(numUserInProdSeverity1, numUserInProdSeverity2, numUserInProdSeverity3)
       .setPentestDate(pentestDate, ptNumberOfActiveTickets, ptNumberOfClosedTickets)
       .setNumberOfDeployedVMs(numberOfDeployedVMs)
-      .setNumberOfExposedSecrets(numberOfExposedSecrets)
-      .setCodeQualityTool(
+      //.setScaTool(scaTool, scaNumberOfSeverity1, scaNumberOfSeverity2, scaNumberOfSeverity3, scaNumberOfSeverity4)
+      //.setSastTool(sastTool, sastNumberOfSeverity1, sastNumberOfSeverity2, sastNumberOfSeverity3)
+      //.setNumberOfExposedSecrets(numberOfExposedSecrets)
+      /*.setCodeQualityTool(
         codeQualityTool,
         cqNumberOfSeverity1,
         cqNumberOfSeverity2,
         cqNumberOfSeverity3,
         cqNumberOfSeverity4,
         cqNumberOfSeverity5
-      )
+      )*/
       .build();
     return responseBody;
   }
