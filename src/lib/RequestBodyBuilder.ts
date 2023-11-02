@@ -1,5 +1,6 @@
 import { RequestBody } from './RequestBody';
 import { parseToNumberOrUndefined } from './parser';
+import { isNullOrUndefined } from './util';
 
 export class RequestBodyBuilder {
   private requestBody: RequestBody;
@@ -166,8 +167,8 @@ export class RequestBodyBuilder {
   }
 
   setNumberOfExposedSecrets(numberOfExposedSecrets: string | undefined): this {
-    if (numberOfExposedSecrets) {
-      this.requestBody.numberOfExposedSecrets = parseToNumberOrUndefined(numberOfExposedSecrets);
+    if (!isNullOrUndefined(numberOfExposedSecrets)) {
+      this.requestBody.numberOfExposedSecrets = parseToNumberOrUndefined(numberOfExposedSecrets as string);
     }
     return this;
   }
