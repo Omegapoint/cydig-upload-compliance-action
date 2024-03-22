@@ -8,7 +8,7 @@ let urls: string | undefined;
 
 export class BodyBuilder {
   createBody(teamName: string, codeRepositoryName: string, subscriptionId: string): RequestBody {
-    const teamProjectName: string = teamName;
+    const teamProjectName: string = 'not-specified';
     const allowedLocationPolicy: string | undefined = process.env?.allowedLocationPolicy;
     const secureScore: string | undefined = process.env?.secureScore;
     const numberOfDeployedVMs: string | undefined = process.env?.numberOfDeployedVMs;
@@ -40,6 +40,7 @@ export class BodyBuilder {
     const sastNumberOfSeverity1: string | undefined = process.env?.SASTnumberOfSeverity1;
     const sastNumberOfSeverity2: string | undefined = process.env?.SASTnumberOfSeverity2;
     const sastNumberOfSeverity3: string | undefined = process.env?.SASTnumberOfSeverity3;
+    const sastNumberOfSeverity4: string | undefined = process.env?.SASTnumberOfSeverity4;
 
     const tmNumberOfActiveTickets: string | undefined = process.env?.tmNumberOfActiveTickets;
     const tmNumberOfClosedTickets: string | undefined = process.env?.tmNumberOfClosedTickets;
@@ -83,7 +84,7 @@ export class BodyBuilder {
       .setThreatModelingDate(threatModelingDate, tmNumberOfActiveTickets, tmNumberOfClosedTickets)
       .setNumberOfReviewers(numberOfReviewers, branchPolicyUpdateDate, branchPolicyUpdateEmail)
       .setScaTool(scaTool, scaNumberOfSeverity1, scaNumberOfSeverity2, scaNumberOfSeverity3, scaNumberOfSeverity4)
-      .setSastTool(sastTool, sastNumberOfSeverity1, sastNumberOfSeverity2, sastNumberOfSeverity3)
+      .setSastTool(sastTool, sastNumberOfSeverity1, sastNumberOfSeverity2, sastNumberOfSeverity3, sastNumberOfSeverity4)
       .setSecureScore(secureScore)
       .setAllowedLocationPolicy(allowedLocationPolicy, compliantResources, nonCompliantResources)
       .setNumberOfHumansInSubscription(numUserInProdSeverity1, numUserInProdSeverity2, numUserInProdSeverity3)

@@ -22,6 +22,7 @@ export class RequestBody {
   scaNumberOfSeverity2?: number;
   scaNumberOfSeverity1?: number;
   sastTool?: string;
+  sastNumberOfSeverity4?: number;
   sastNumberOfSeverity3?: number;
   sastNumberOfSeverity2?: number;
   sastNumberOfSeverity1?: number;
