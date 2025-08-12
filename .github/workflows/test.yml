@@ -13,16 +13,16 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Upload action
-              uses: actions/checkout@v4
+              uses: actions/checkout@v5
               with:
                   path: upload-action
             - name: Checkout Azure compliance action
-              uses: actions/checkout@v4
+              uses: actions/checkout@v5
               with:
                   repository: Omegapoint/cydig-azure-compliance-action
                   path: azure-compliance-action
             - name: Checkout compliance action
-              uses: actions/checkout@v4
+              uses: actions/checkout@v5
               with:
                   repository: Omegapoint/cydig-compliance-action
                   path: compliance-action
