@@ -1,8 +1,6 @@
 import { RequestBodyBuilder } from './RequestBodyBuilder';
 import { RequestBody } from './RequestBody';
 
-let urls: string | undefined;
-
 export class BodyBuilder {
     createBody(teamName: string, codeRepositoryName: string, subscriptionId: string): RequestBody {
         const teamProjectName: string = 'not-specified';

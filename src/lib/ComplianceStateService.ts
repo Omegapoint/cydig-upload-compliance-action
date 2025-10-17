@@ -1,9 +1,6 @@
 import { BodyBuilder } from './BodyBuilder';
 import axios from 'axios';
 import { RequestBody } from './RequestBody';
-import * as fs from 'fs';
-import * as path from 'path';
-import * as core from '@actions/core';
 
 export class ComplianceStateService {
     private updateKey: string;
@@ -38,7 +35,7 @@ export class ComplianceStateService {
                 },
             })
             .then(() => {
-                console.log('Compliance state is updated')
+                console.log('Compliance state is updated');
             })
 
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
