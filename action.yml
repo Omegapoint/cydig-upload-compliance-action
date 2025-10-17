@@ -13,10 +13,6 @@ inputs:
         required: true
         default: 'Not working'
 
-outputs:
-    readme-badges:
-        description: 'README badges text file'
-
 runs:
     using: node16
     main: dist/index.js
