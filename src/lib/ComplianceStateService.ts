@@ -38,15 +38,7 @@ export class ComplianceStateService {
                 },
             })
             .then(() => {
-                const urls: string | undefined = bodyBuilder.getUrls();
-                if (urls) {
-                    const outputFilePath: string = path.join(__dirname, 'README_badges.txt'); // Output file in the same directory as the script
-                    fs.writeFileSync(outputFilePath, urls, 'utf-8');
-                    core.setOutput('readme-badges', urls);
-                    console.log(urls);
-                } else {
-                    console.log('No access key for badges was provide, skipping step.');
-                }
+                console.log('Compliance state is updated')
             })
 
             // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -1,7 +1,4 @@
-import { UrlBuilder } from './UrlBuilder';
 import { RequestBodyBuilder } from './RequestBodyBuilder';
-import { UrlBodyBuilder } from './UrlBodyBuilder';
-import { UrlBody } from './UrlBody';
 import { RequestBody } from './RequestBody';
 
 let urls: string | undefined;
@@ -60,32 +57,6 @@ export class BodyBuilder {
 
         const numberOfCommunicationMembers: string | undefined = process.env?.numberOfCommunicationMembers;
 
-        //For printing urls in the pipeline
-        const urlBody: UrlBody = new UrlBodyBuilder()
-            .setThreatModelingDate(threatModelingDate)
-            //.setUserAccessToCode(numberOfCodeAdmins, numberOfCodeWriters, numberOfCodeReaders) //TODO: Add when user access to code is implemented for all teams
-            .setNumberOfReviewers(numberOfReviewers)
-            .setSecretScanningTool(secretScanningTool)
-            .setCodeQualityTool(codeQualityTool)
-            .setScaTool(scaTool)
-            .setSastTool(sastTool)
-            .setSecureScore(secureScore)
-            .setAllowedLocationPolicy(allowedLocationPolicy)
-            .setNumberOfHumansInSubscription(numUserInProdSeverity1, numUserInProdSeverity2, numUserInProdSeverity3)
-            .setUserAccessToCode(numberOfCodeAdmins, numberOfCodeWriters, numberOfCodeReaders)
-            .setNumberOfDeployedVMs(numberOfDeployedVMs)
-            .setPentestDate(pentestDate)
-            .build();
-
-        urls = new UrlBuilder().createUrl(
-            // eslint-disable-line
-            teamName,
-            teamProjectName,
-            codeRepositoryName,
-            subscriptionId,
-            urlBody,
-        );
-
         const requestBody: RequestBody = new RequestBodyBuilder()
             .setTeamName(teamName)
             .setTeamProjectName(teamProjectName)
@@ -119,9 +90,5 @@ export class BodyBuilder {
             .setCommunicationTool(communicationTool, numberOfCommunicationMembers)
             .build();
         return requestBody;
-    }
-
-    getUrls(): string | undefined {
-        return urls;
     }
 }
