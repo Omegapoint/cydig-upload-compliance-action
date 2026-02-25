@@ -25,9 +25,10 @@ async function runUpdateComplianceStateTask(): Promise<void> {
     } catch (error) {
         // Fail the workflow run if an error occurs
         if (core) {
-            core.setFailed(error);
+            core.setFailed(error instanceof Error ? error : String(error));
         } else {
             console.error(error);
+            process.exitCode = 1;
         }
     }
 }
