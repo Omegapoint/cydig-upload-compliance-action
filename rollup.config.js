@@ -12,8 +12,5 @@ export default {
         // Packages starting with @ or lowercase letters (but not dist/src paths)
         return /^(@|[a-z])/.test(id) && !id.includes('/src/') && !id.includes('/lib/');
     },
-    plugins: [
-        resolve({ preferBuiltins: true }),
-        commonjs(),
-    ],
+    plugins: [resolve({ preferBuiltins: true }), commonjs()],
 };
