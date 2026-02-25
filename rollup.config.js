@@ -6,7 +6,7 @@ export default {
     output: {
         file: 'dist/index.js',
         format: 'cjs',
-        interop: 'auto',
+        interop: 'compat',
     },
     external: (id) => {
         // Packages starting with @ or lowercase letters (but not dist/src paths)
