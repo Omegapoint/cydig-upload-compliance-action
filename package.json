@@ -6,7 +6,7 @@
         ".": "./dist/index.js"
     },
     "engines": {
-        "node": ">=16"
+        "node": ">=20"
     },
     "main": "dist/index.js",
     "scripts": {
