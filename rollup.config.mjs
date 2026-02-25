@@ -11,5 +11,9 @@ export default {
         interop: 'compat',
     },
     external: [...builtinModules, ...builtinModules.map((m) => `node:${m}`)],
-    plugins: [resolve({ preferBuiltins: true, exportConditions: ['import', 'default', 'require'] }), commonjs(), json()],
+    plugins: [
+        resolve({ preferBuiltins: true, exportConditions: ['import', 'default', 'require'] }),
+        commonjs(),
+        json(),
+    ],
 };
