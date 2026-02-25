@@ -1,8 +1,8 @@
+import * as core from '@actions/core';
+import * as github from '@actions/github';
 import { ComplianceStateService } from './lib/ComplianceStateService';
 import { getContentOfFile } from './lib/JsonService';
 import { CyDigConfig } from './lib/types/CyDigConfig';
-import * as core from '@actions/core';
-import * as github from '@actions/github';
 
 async function runUpdateComplianceStateTask(): Promise<void> {
     try {
@@ -23,7 +23,7 @@ async function runUpdateComplianceStateTask(): Promise<void> {
         await complianceStateService.createAndSendComplianceState(teamName, codeRepositoryName, subscriptionId);
     } catch (error) {
         // Fail the workflow run if an error occurs
-        core.setFailed(error);
+        core.setFailed(error instanceof Error ? error : String(error));
     }
 }
 
