@@ -12,12 +12,14 @@ export default {
         {
             name: 'external-packages',
             resolveId(id) {
-                if (id.startsWith('@actions/') || id === 'axios' || id.startsWith('@azure/')) {
+                // Mark all bare package imports as external (not relative/absolute paths)
+                if (!id.includes('/') || id.startsWith('@')) {
+                    // This catches both @scoped/package and plain package names
                     return { id, external: true };
                 }
-            }
+            },
         },
         resolve({ preferBuiltins: true }),
-        commonjs()
-    ]
+        commonjs(),
+    ],
 };
