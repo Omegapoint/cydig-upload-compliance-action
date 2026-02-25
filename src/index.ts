@@ -1,12 +1,11 @@
+import * as core from '@actions/core';
+import * as github from '@actions/github';
 import { ComplianceStateService } from './lib/ComplianceStateService';
 import { getContentOfFile } from './lib/JsonService';
 import { CyDigConfig } from './lib/types/CyDigConfig';
 
 async function runUpdateComplianceStateTask(): Promise<void> {
-    let core: typeof import('@actions/core') | undefined;
     try {
-        core = await import('@actions/core');
-        const github = await import('@actions/github');
         const codeRepositoryName: string = github.context.repo.repo;
         const subscriptionId: string = core.getInput('subscriptionId');
         const cydigConfigPath: string = core.getInput('cydigConfigPath');
@@ -24,11 +23,7 @@ async function runUpdateComplianceStateTask(): Promise<void> {
         await complianceStateService.createAndSendComplianceState(teamName, codeRepositoryName, subscriptionId);
     } catch (error) {
         // Fail the workflow run if an error occurs
-        if (core) {
-            core.setFailed(error);
-        } else {
-            console.error(error);
-        }
+        core.setFailed(error instanceof Error ? error : String(error));
     }
 }
 
