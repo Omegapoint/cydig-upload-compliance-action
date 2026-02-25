@@ -8,5 +8,16 @@ export default {
         format: 'cjs',
     },
     external: (id) => id.includes('node_modules'),
-    plugins: [resolve(), commonjs()],
+    plugins: [
+        {
+            name: 'external-packages',
+            resolveId(id) {
+                if (id.startsWith('@actions/') || id === 'axios' || id.startsWith('@azure/')) {
+                    return { id, external: true };
+                }
+            }
+        },
+        resolve({ preferBuiltins: true }),
+        commonjs()
+    ]
 };
