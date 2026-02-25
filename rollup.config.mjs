@@ -1,5 +1,6 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
 
 export default {
     input: 'dist/src/index.js',
@@ -8,13 +9,6 @@ export default {
         format: 'cjs',
         interop: 'compat',
     },
-    external: (id) => {
-        // Keep bundle entry/internal files in dist
-        if (id.startsWith('dist/')) {
-            return false;
-        }
-        // Treat bare imports as external (node_modules)
-        return !id.startsWith('.') && !id.startsWith('/');
-    },
-    plugins: [resolve({ preferBuiltins: true }), commonjs()],
+    external: [],
+    plugins: [resolve({ preferBuiltins: true, exportConditions: ['import', 'require', 'default'] }), commonjs(), json()],
 };
