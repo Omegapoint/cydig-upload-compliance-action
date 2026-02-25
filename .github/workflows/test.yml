@@ -51,7 +51,7 @@ jobs:
             - name: Run upload tests
               run: |
                   cd upload-action
-                   npm run test
+                  npm run test
             - name: Run azure compliance tests
               run: |
                   cd azure-compliance-action
