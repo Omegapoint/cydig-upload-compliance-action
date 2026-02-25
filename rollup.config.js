@@ -6,19 +6,13 @@ export default {
     output: {
         file: 'dist/index.js',
         format: 'cjs',
+        interop: 'auto',
     },
-    external: (id) => id.includes('node_modules'),
+    external: (id) => {
+        // Packages starting with @ or lowercase letters (but not dist/src paths)
+        return /^(@|[a-z])/.test(id) && !id.includes('/src/') && !id.includes('/lib/');
+    },
     plugins: [
-        {
-            name: 'external-packages',
-            resolveId(id) {
-                // Mark all bare package imports as external (not relative/absolute paths)
-                if (!id.includes('/') || id.startsWith('@')) {
-                    // This catches both @scoped/package and plain package names
-                    return { id, external: true };
-                }
-            },
-        },
         resolve({ preferBuiltins: true }),
         commonjs(),
     ],
