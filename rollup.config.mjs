@@ -9,8 +9,12 @@ export default {
         interop: 'compat',
     },
     external: (id) => {
-        // Packages starting with @ or lowercase letters (but not dist/src paths)
-        return /^(@|[a-z])/.test(id) && !id.includes('/src/') && !id.includes('/lib/');
+        // Keep bundle entry/internal files in dist
+        if (id.startsWith('dist/')) {
+            return false;
+        }
+        // Treat bare imports as external (node_modules)
+        return !id.startsWith('.') && !id.startsWith('/');
     },
     plugins: [resolve({ preferBuiltins: true }), commonjs()],
 };
